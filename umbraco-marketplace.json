@@ -1,7 +1,5 @@
 {
   "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
-  "AddOnPackagesRequiredForUmbracoCloud": [],
-  "AlternateCategory": "",
   "AuthorDetails": {
     "Name": "Digital Wonderlab",
     "Description": "As a proud Certified B Corporation® and dedicated members of 1% for The Planet, we are passionate about amplifying the voices and visions of purpose-driven start-ups, SMEs, not-for-profits, and global enterprises.",
@@ -9,45 +7,21 @@
     "ImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczPlG0_DMnBWmlHRUlrfpnxoLics0E5EeFBAQ7HRt8LCt2u_eAtfk8IQUItm_AJ_rZtRAyigGXcHSPmD7qNZLi4TQayXQRnDjqiymFvag4UpUiVUDYpbv5Z_Ff-4TjoPjXKq5JG8P7n54An_Ut9cmMVfHI7Ipp_kxkCtk-vEokOs7B4RgQCNmH7npiBWQHCSBZAwzHyXWnkulbgbjFXH38-Un6WD4lRjVo9nzHkRYCfj8zWrxaMhNm8MqRy8a-sPYfTNg3NwwtfB-4O_P8_F1L5oyDNTmw3qe7lezduqtyKUOjsdkz6VY-yxnEmybuVm6PrvWTKjQXAnuokWFjI5uhT_iY45GfTsS3vvfDpvxUCsc6GuwuafOs6c6OXe6L21OEhLfxHiOomE4tpPAtYMiLiI27sO7r7NNts4jUiy3eqy04e22kR-iQnunNo7ZZIvHNFsJ8VMVv2fe5LVpeSxcxW_2lrTdWlSNUc2rDWWmxrIPoqXjcpj-CGfoxkpdEof5j3oaCoHfUB2l06Fn-Agsdl8GwlGTKq6dvFcw_LMT7T1TAkTa2IvEcxzovjb-u2u2wcrBeJYRd79hBv7h9izMMjNVi7Cn1G8D-mgaXCzQz-F5qcd2Ba6CSQlERtoS9EyOTxFYS7DyCVsMabH0h-eyroWVd4OzKgdbJL6K1GMCWGJXHxL7B8Lk0Wypwk-HMO96TtB2YDTAEGLz-Q4TWCGUoh9z8ayqVtTxYjTFAE8Qr8nFvV24FXbUdKfTbTfFsgDH1-rU1Ux0Vze4X8flDaIPSxIrWo87BudElWeAl-tQ8-7rNViY5PsAw1QBz_VX_a0DtqcBnE7OPu3SlRjZZJzgc661bkjcdy8g5ubYMpFhveUbFeASxMsufF8pIjI1TUf1YZVBUWL2NIK3p-bZn-mJAlTkb_39Zfj4W7-n9vVZi4JsMgmJq0Nj1wZog=w945-h945-s-no-gm?authuser=0",
     "Contributors": [
       {
-        "Name": "Nathan Love",
-        "Url": ""
+        "Name": "Nathan Love"
       }
     ],
     "SyncContributorsFromRepository": false
   },
   "Category": "Analytics & Insights",
   "Description": "Boost your website's SEO performance with Wonder SEO Checker, the ultimate auditing tool designed specifically for Umbraco. Ensure every page on your site meets SEO standards effortlessly.",
-  "DiscussionForumUrl": "",
-  "DocumentationUrl": "",
   "LicenseTypes": ["Free"],
-  "IssueTrackerUrl": "",
-  "IsSubPackageOf": "",
   "PackageType": "Package",
-  "PackagesByAuthor": [],
-  "RelatedPackages": [
-    {
-      "GroupTitle": "",
-      "PackageId": "",
-      "Description": ""
-    }
-  ],
   "Screenshots": [
     {
-      "ImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNFLtcBxVqHunEs3I78jUPYog1QA_ROArszZBx78QUmiM3siAq9m_ilJWCGrCgP3F4qtPtyTgxzMszc1FnIHVzA9qjs0I7HiEOFQ_VBQLH61DBzEOo8jPAvKmt1qVhrgs8ePoMx7ufcUwyA3RmAb-DZS2NeF6nd7E-Q_WAR0aGH7nzYXwc2uL50g129mB_24VmJTtZcCF-XI2dIH20JNkMgMLZQsuVfb0RjIXpA9SjIgR-knG_d5LIoQefK58D2KqP6fRer_wBnUVIbZ4p2rOZV7_Qy6h3q_E_ya0cxtQGafAJExrpAnAs2eDx0jLCexEfDfqfXC29591SfsR2q_MpFfKHzigVogodNZpw1tDPh_gUlzHUSWyugM0d3YBVlpvp-OgZ88Y-EVI33_JR12DtxZxoFFLUIPZhJpjfCidCYyvRAOWohlt6K8jdUG_xEHBZApqZe_CZorgWI_Xlj_X4Ttx2UocGFUwF0bvm99TlIwRRNQB6ms_afOgOGVPlqTquAt5cO_rxrjlwZQuJ03a3PhY7mhqPQjdqE9P5EfcIvtrjVm8YFCVr_SYQpIsum-Ip25SPL3-3rD9qljTgE5Cma54oLz8xw0wAZ8pPw203Q54JqNkOIqLeDWOeo8wxCD_z1ElaNE-JIzEboIAUt8kSr7rHHrXuuPJCKxbtCBzWUo1I440Nc2KUiLnQMfISjszlop-ghB1jfQ5boHxTWpdSYN3abob8XPS0Sj6-ziY9ZuAI12IGGjLCnBVD5_Om57TKQzszlu_OQdFOdnGAWLgcHLfwyfL5YyFOVZpYhZc2aUoIepsuni-ynBEgqeZmwM8DepEgOoOD4YVcCVN2Ybp78zfs5lk5ouNmsDRQYB3LSFNL4bbCe4J7gtmGpZIcfNfzRMF1lHtmcVOuc6xfWe1x7TcukSn3bCAS1Cc8HTEhcMWZY6AJH6kBRNA=w1546-h617-s-no-gm?authuser=0",
-      "Caption": ""
+      "ImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczNFLtcBxVqHunEs3I78jUPYog1QA_ROArszZBx78QUmiM3siAq9m_ilJWCGrCgP3F4qtPtyTgxzMszc1FnIHVzA9qjs0I7HiEOFQ_VBQLH61DBzEOo8jPAvKmt1qVhrgs8ePoMx7ufcUwyA3RmAb-DZS2NeF6nd7E-Q_WAR0aGH7nzYXwc2uL50g129mB_24VmJTtZcCF-XI2dIH20JNkMgMLZQsuVfb0RjIXpA9SjIgR-knG_d5LIoQefK58D2KqP6fRer_wBnUVIbZ4p2rOZV7_Qy6h3q_E_ya0cxtQGafAJExrpAnAs2eDx0jLCexEfDfqfXC29591SfsR2q_MpFfKHzigVogodNZpw1tDPh_gUlzHUSWyugM0d3YBVlpvp-OgZ88Y-EVI33_JR12DtxZxoFFLUIPZhJpjfCidCYyvRAOWohlt6K8jdUG_xEHBZApqZe_CZorgWI_Xlj_X4"
     },
     {
       "ImageUrl": "https://lh3.googleusercontent.com/pw/AP1GczO0M4-PoV0VbbM_XTfHdthMm3uDS4JOK-ihb9J-O_40rs3sM_ADsbRe9vV5e3q2uOgh4IkOlNEHZLbu5H9Z8Aozgh0rwSODM5RiKZX28CG162nHCxoOvw2t5VthGZHWiCv_DHGRdB6lMmOHGylPVRwVFJEBnla6ltQYlgsj5E02LGqTc_PfPeZI6odKh-WpTA0-eqU69p0EAB1qadIQ53XOQ67guDv2o-IPdqQ4GbJKhXo42Amr_ZLMj88ECnz2kPB7fM3Qa0ehl8YiZJytQlwub7GwLhtOR29XLC1cpOa63lJ4suuPF_DGxx5_WKGONraNQVxCGN15NkdejaAPUxEwponnRjfE0OTnSR8adYX81ORob-umrl9IvgcBrtqLNxYJHqk_OLFicS9uxBaw1NOCP5xfz6y9vC1aj4cDcl0wKkKLiwKyp2mWaJrdAHEfkqA1_G3lOMPE1j41S8BUsm7tH2Q9WmOxtWyr2i9dBfAgV96uLcL209ACQHCslln3Na_fglmxKRRuC2FMi0xQmGnFEHo0ZXBj8B2QItnV_qJe30TVwXb0D2VkniA0IQ4iIMaC-2-gU-6mWPIwa7DOlnZgFueNmclyhwozeXVzVFLoeAwAg56KOi6Ade789SsfErLuBnrYryW86AOQYv6YVkWKNadZFVcwizsoi7QW4s5TGjUetrVT80YYWA8WldnBzb06AA_Tx-sr2vqPij_QWhvkhHSatlcRD1530EKbDzuYnUJE09ZbafsAJLsMrGgcJ_BYExtniyDa-aYHgl8yekdJnFLSR3jaPnqUliCDemZf9NByeDSQZGE9MtVqeq8u4enqKLZiPQpsv1U8uS8lFZBIo9vF5h-YjpJHlJT5YGD_P6G4_TWvu0vKz35hA-RZkW87M0WYgbyX0Et7KKkDZKPWY9NjtXalHmlVE02pWR7wxHrAjuvZQuzxbg=w1549-h832-s-no-gm?authuser=0",
-      "Caption": ""
-    }
-  ],
+    },
   "Tags": ["SEO Audit", "Health Check", "Speed Test"],
   "Title": "Wonder SEO Checker",
-  "VersionSpecificPackageIds": [
-    {
-      "UmbracoMajorVersion": 8,
-      "PackageId": ""
-    }
-  ],
-  "VideoUrl": ""
-}
