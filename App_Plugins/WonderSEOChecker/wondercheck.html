@@ -1,0 +1,317 @@
+﻿<script src="UUI/uui-imports.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-utilities.min.css" integrity="sha512-4ocAKAxnrkSm7MvkkF1D435kko3/HWWvoi/U9+7+ln94B/U01Mggca05Pm3W59BIv3abl0U3MPdygAPLo5aeqg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    li.wonder-seo-wrapper {
+        max-width: 900px;
+    }
+
+    p.wonder-seo-wrapper {
+        max-width: 900px;
+    }
+
+    li.wonder-seo-wrapper {
+        margin-block: 14px;
+    }
+
+    .powered-img {
+        object-fit: contain;
+        border-radius: 6px;
+        filter: grayscale(1);
+        transition: 0.2s
+    }
+
+        .powered-img:hover {
+            filter: grayscale(0);
+            transition: 0.2s
+        }
+</style>
+
+<div class="wonder-seo-wrapper" ng-controller="My.WordCounterApp as vm">
+    <umb-box>
+        <umb-box-header title="Get Started"></umb-box-header>
+        <umb-box-content>
+            <div class="d-flex flex-column">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4 class="mb-4">Welcome to Wonder SEO Checker</h4>
+                    </div>
+                </div>
+                <p class="wonder-seo-wrapper">
+                    Wonder SEO Checker is designed to run on <strong>published</strong> pages only. It is important to note that you <strong>cannot run the plugin on your local machine</strong>, as it requires a live URL to analyse. 
+                    <br/><br/>
+                    Simply click the 'Run audit' button to begin.
+                </p>
+                <div class="mt-3 d-flex justify-content-between align-items-end">
+                    <uui-button ng-disabled="vm.loading" label="Basic Button" ng-click="vm.runPageSpeed($event)" look="primary">Run audit</uui-button>
+                    <div class="d-flex align-items-center gap-3" style="font-weight: 600">
+                        <a target="_blank" href="https://digitalwonderlab.com">
+                            <img class="powered-img" height="40" width="40" src="/app_plugins/wonderseochecker/wondercheck.jpg" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </umb-box-content>
+    </umb-box>
+    <umb-box ng-if="vm.pageSpeedResult || vm.loading" class="my-3">
+        <umb-box-header title="Results"></umb-box-header>
+        <umb-box-content>
+            <div ng-if="vm.loading" class="d-flex gap-3 flex-column justify-content-center align-items-center my-5 text-center">
+                <uui-loader-circle style="font-size: 2em;"></uui-loader-circle>
+                <span style="font-weight: 700; font-size: 18px">Preparing your results...</span>
+                <span style="font-weight:700; opacity: 0.8;">This can take a few minutes. Please do not exit this tab...</span>
+            </div>
+
+            <!-- d -->
+            <div ng-if="vm.pageError" class="d-flex gap-3 flex-column justify-content-center align-items-center my-5 text-center">
+                <span style="font-weight: 700; font-size: 18px">Error fetching results. Please refresh the page and try again.</span>
+            </div>
+            <div ng-if="vm.pageSpeedResult" class="my-2">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Page load speed</uui-tag>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <uui-tag color="positive" style="font-size: 14px;" ng-if="vm.parsedSpeedIndex <= 3.4">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #FFFFFF;"></i>
+                            This page has a good load speed
+                        </uui-tag>
+
+                        <uui-tag color="warning" style="font-size: 14px;" ng-if="vm.parsedSpeedIndex <= 5.8 && vm.parsedSpeedIndex > 3.4">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #000000;"></i>
+                            This page has an okay load speed
+                        </uui-tag>
+                        <uui-tag color="danger" style="font-size: 14px;" ng-if="vm.parsedSpeedIndex > 5.8">
+                            <i class="fa-solid fa-circle-xmark me-2" style="color: #FFFFFF;"></i>
+                            This page has a poor load speed
+                        </uui-tag>
+                    </div>
+                </div>
+                <span style="font-size: 16px;">Time to population: <strong>{{vm.pageSpeedResult.lighthouseResult.audits['speed-index'].displayValue}}</strong></span><br />
+                <div class="mt-4 width-wrapper" style="font-size: 16px;">
+                    <strong>Tips for improving load speeds:</strong>
+                    <p>
+                        <ul>
+                            <li>Optimize Images: Make sure the pictures on your website are not too large. Smaller images load faster, which means your visitors see content sooner.</li>
+                            <li>Keep It Simple: Avoid overcrowding your webpages with lots of elements. Simplifying the layout can help speed up loading times.</li>
+                            <li>Regular Maintenance: Keep your website up-to-date and tidy. Just like a well-kept garden grows better, a regularly maintained website tends to load faster.</li>
+                        </ul>
+                    </p>
+                </div>
+
+            </div>
+            <hr ng-if="vm.pageSpeedResult" />
+
+            <div ng-if="vm.pageSpeedResult && vm.pageSpeedResult.lighthouseResult.audits['document-title']" class="py-2">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Title tag</uui-tag>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                        <uui-tag color="positive" style="font-size: 14px;" ng-if="vm.pageSpeedResult.lighthouseResult.audits['document-title'].score == 1">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #FFFFFF;"></i>
+                            This page has a title tag!
+                        </uui-tag>
+                        <uui-tag color="danger" style="font-size: 14px;" ng-if="vm.pageSpeedResult.lighthouseResult.audits['document-title'].score != 1">
+                            <i class="fa-solid fa-circle-xmark me-2" style="color: #FFFFFF;"></i>
+                            This page does not have a title tag!
+                        </uui-tag>
+                    </div>
+                </div>
+                <p class="mb-4" style="font-size: 16x; font-style: italic;"><strong style="font-style: normal;">Page Title:</strong> {{ vm.pageTitle }}</p>
+
+                <p style="font-size: 16px;">
+                    When you search for something online, search engines scan through billions of webpages to find the best matches. They look at title tags to understand what each webpage is about. If your webpage has a clear and descriptive title tag that matches what someone is searching for, it's more likely to show up in search results.
+                </p>
+
+            </div>
+            <hr ng-if="vm.pageSpeedResult" />
+
+            <div ng-if="vm.pageSpeedResult && vm.pageSpeedResult.lighthouseResult.audits['meta-description']" class="py-2">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Meta description</uui-tag>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                        <uui-tag color="positive" style="font-size: 14px;" ng-if="vm.pageSpeedResult.lighthouseResult.audits['meta-description'].score == 1">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #FFFFFF;"></i>
+                            This page has a meta-description!
+                        </uui-tag>
+                        <uui-tag color="danger" style="font-size: 14px;" ng-if="vm.pageSpeedResult.lighthouseResult.audits['meta-description'].score != 1">
+                            <i class="fa-solid fa-circle-xmark me-2" style="color: #FFFFFF;"></i>
+                            This page does not have a meta-description!
+                        </uui-tag>
+                    </div>
+                </div>
+                <p class="mb-4" style="font-size: 16px; font-style: italic;"><strong style="font-style: normal;">Meta Description:</strong> {{ vm.metaDescription }}</p>
+
+                <p style="font-size: 16px;" class="width-wrapper">
+                    A meta-description is a concise summary of a web page's content, typically displayed in search engine results below the page title, providing users with a brief preview of what the page is about.
+                </p>
+
+
+            </div>
+            <hr ng-if="vm.pageSpeedResult" />
+
+            <div ng-if="vm.pageSpeedResult" class="py-2">
+                <div class="d-flex flex-row justify-content-between align-items-center mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Search result appearance</uui-tag>
+                    </div>
+                </div>
+                <p style="font-size: 16px;" class="width-wrapper">An appropriate length for the title tag and meta description ensures that they are fully displayed in search results, improving visibility and click-through rates. The example below demonstrates how your title-tag and meta-description would typically display on a search engine:</p>
+                <br />
+                <div class="d-flex p-3 flex-column gap-2" style="background-color: #1f1f1f; max-width: 600px; border-radius: 2px;">
+                    <span style="color: #99c3ff; font-size: 20px;">{{vm.pageTitle}}</span>
+                    <span style="font-size: 14px; color:#bdc1c6">{{vm.truncatedMetaDescription}}</span>
+                </div>
+                <br />
+                <p style="font-style:italic; font-size:14px;" class="width-wrapper">
+                    Your title-tag should be somewhere between 51-70 characters, any longer and search engines will truncate the title-tag.
+                    <br />
+                    For meta-descriptions, a recommended length is anywhere between 50 and 160 characters.
+                </p>
+            </div>
+            <hr ng-if="vm.pageSpeedResult" />
+
+            <div ng-if="vm.pageSpeedResult && vm.pageSpeedResult.lighthouseResult.audits['image-alt']" class="py-2">
+
+                <div class="d-flex flex-row align-items-center justify-content-between mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Image alt-tags</uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].score == 1">
+                        <uui-tag color="positive" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #FFFFFF;"></i>
+                            All images have alt-tags
+                        </uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].score != 1">
+                        <uui-tag color="danger" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-xmark me-2" style="color: #FFFFFF;"></i>
+                            Not all images have alt-tags
+                        </uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].score < 1 && vm.pageSpeedResult.lighthouseResult.audits['image-alt'].details.items.length == 0">
+                        <uui-tag color="default" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-info me-2" style="color: #FFFFFF;"></i>
+                            No images on the page
+                        </uui-tag>
+                    </div>
+                </div>
+                <p style="font-size: 16px;">
+                    Alt-tags are like little descriptions for images on a website. They're important because they help people who can't see the images understand what they're about. For example, someone using a screen reader (a tool that reads out web content for people with visual impairments) will hear the alt-tag read aloud.
+                </p>
+                <br />
+                <p ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].score != 1" style="font-size: 16px;">
+                    Fixing this issue is relatively straightforward and can be achieved one of two ways:
+                </p>
+
+                <ul style="font-size: 16px;">
+                    <li>Look through this page, where an image is present, hover the image preview and click it's name. This will open up the media editor, from here you can add a descriptive and unique alt-tag.</li>
+                    <li>Visit the <strong>Media</strong> tab in the Umbraco back-office and apply alt-tags to all images. This can be done by clicking the name of the image when hovering and opening the media editor.</li>
+                </ul>
+                <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].details.items.length > 0">
+                    <br />
+                    <p style="font-weight: 700; font-size: 16px;">Images without alt-tags:</p>
+                    <br />
+                </div>
+
+                <!-- <uui-menu-item class="mt-4" has-children label="View image files without alt-tags" > -->
+                <uui-box ng-if="vm.pageSpeedResult.lighthouseResult.audits['image-alt'].details.items.length > 0">
+                    <uui-table aria-label="Example table" aria-describedby="#some-element-id">
+
+                        <!-- Apply styles to the uui-table-column to style the columns. You must have the same number of this elements as you have columns -->
+                        <uui-table-column style="width: 100%"></uui-table-column>
+
+                        <uui-table-head>
+                            <uui-table-head-cell>Filename</uui-table-head-cell>
+                        </uui-table-head>
+
+                        <uui-table-row ng-repeat="item in vm.pageSpeedResult.lighthouseResult.audits['image-alt'].details.items">
+                            <uui-table-cell>{{ item.node.snippet.split('src="')[1].split('"')[0] }}</uui-table-cell>
+                        </uui-table-row>
+                    </uui-table>
+                </uui-box>
+                <!-- </uui-menu-item> -->
+            </div>
+            <hr ng-if="vm.pageSpeedResult" />
+
+            <div ng-if="vm.pageSpeedResult && vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats']" class="py-2">
+                <div class="d-flex flex-row align-items-center justify-content-between mb-4">
+                    <div>
+                        <uui-tag look="primary" style="font-size:14px; margin-bottom: 8px">Modern image formats</uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].score == 1">
+                        <uui-tag color="positive" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-check me-2" style="color: #FFFFFF;"></i>
+                            All images using modern formats
+                        </uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].score < 1">
+                        <uui-tag color="danger" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-xmark me-2" style="color: #FFFFFF;"></i>
+                            Not all images using modern formats
+                        </uui-tag>
+                    </div>
+                    <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].details.items.length == 0 && vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].score < 1">
+                        <uui-tag color="default" style="font-size: 14px;">
+                            <i class="fa-solid fa-circle-info me-2" style="color: #FFFFFF;"></i>
+                            No images on the page
+                        </uui-tag>
+                    </div>
+                </div>
+                <p style="font-size: 16px;">Modern image formats, like WebP, are like supercharged versions of regular image files. They're special because they make images look really good while also being smaller in size. This means they load faster on websites, making your pages speedier for everyone who visits them.</p><br />
+                <p style="font-size: 16px;">Make sure all images used on this page are using a modern format for faster load speeds</p>
+                <div ng-if="vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].details.items.length > 0">
+                    <br />
+                    <p style="font-weight: 700; font-size: 16px;">Images not using a modern format:</p>
+                    <br />
+                </div>
+
+                <!-- <uui-menu-item class="mt-4" has-children label="View unoptimised image files" > -->
+                <uui-box ng-if="vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].details.items.length > 0">
+                    <uui-table aria-label="Example table" aria-describedby="#some-element-id">
+
+                        <!-- Apply styles to the uui-table-column to style the columns. You must have the same number of this elements as you have columns -->
+                        <uui-table-column style="width: 60%"></uui-table-column>
+                        <uui-table-column style="width: 30%"></uui-table-column>
+
+                        <uui-table-head>
+                            <uui-table-head-cell>URL</uui-table-head-cell>
+                            <uui-table-head-cell>Size</uui-table-head-cell>
+                            <uui-table-head-cell>Wasted Megabytes</uui-table-head-cell>
+                        </uui-table-head>
+
+                        <uui-table-row ng-repeat="item in vm.pageSpeedResult.lighthouseResult.audits['modern-image-formats'].details.items">
+                            <uui-table-cell>{{ item.url }}</uui-table-cell>
+                            <uui-table-cell>{{ (item.totalBytes / 1048576) | number:2 }} MB</uui-table-cell>
+                            <uui-table-cell>{{ item.wastedBytes / 1048576 | number:2 }}MB</uui-table-cell>
+                        </uui-table-row>
+                    </uui-table>
+                    <p class="my-4" style="font-style:italic; font-size:14px;">
+                        Wasted megabytes are calculated on how much the images could be compressed or optimized without significantly sacrificing visual quality. Comparing the original image size with the size that would result from optimisation using modern image compression techniques, such as converting to WebP.
+                    </p>
+                </uui-box>
+                <!-- </uui-menu-item> -->
+
+            </div>
+
+        </umb-box-content>
+    </umb-box>
+    <umb-box>
+        <umb-box-header title="How this plugin works"></umb-box-header>
+        <umb-box-content>
+                <p class="wonder-seo-wrapper">
+                    Wonder SEO Checker is an Umbraco plugin that evaluates a website's SEO performance. It examines key aspects such as page load speed, title tags, meta descriptions, alt tags, and image formats. By analyzing these elements, valuable insights into the website's optimization for search engines can be gained.
+                    <br /><br />
+                    This plugin is powered Google's Lighthouse tool to perform the analysis. Lighthouse is an open-source, automated tool for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO, and more.
+                </p>
+        </umb-box-content>
+    </umb-box>
+</div>
+
