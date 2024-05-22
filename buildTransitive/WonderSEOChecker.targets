@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <WonderSEOCheckerContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\WonderSEOChecker\**\*.*</WonderSEOCheckerContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyWonderSEOCheckerAssets" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <WonderSEOCheckerContentFiles Include="$(WonderSEOCheckerContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying WonderSEOChecker files: $(WonderSEOCheckerContentFilesPath) - #@(WonderSEOCheckerContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(WonderSEOCheckerContentFiles)" DestinationFiles="@(WonderSEOCheckerContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\WonderSEOChecker\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearWonderSEOCheckerAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <WonderSEOCheckerDir Include="$(MSBuildProjectDirectory)\App_Plugins\WonderSEOChecker\" />
+    </ItemGroup>
+    <Message Text="Clear old WonderSEOChecker data" Importance="high" />
+    <RemoveDir Directories="@(WonderSEOCheckerDir)" />
+  </Target>
+</Project>
