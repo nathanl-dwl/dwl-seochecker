@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ContentTargetFolders>.</ContentTargetFolders>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>WonderSEOChecker</PackageId>
+    <Product>WonderSEOChecker</Product>
+    <Title>Wonder SEO Checker</Title>
+    <Description></Description>
+    <PackageTags>umbraco plugin package umbraco-marketplace</PackageTags>
+    <Version>1.2.7</Version>
+	<PackageProjectUrl>https://github.com/nathanl-dwl/dwl-seochecker/</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/nathanl-dwl/dwl-seochecker.git</RepositoryUrl>
+	<PackageIcon>Wonder-Check.png</PackageIcon>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	  <PackageReference Include="Umbraco.Cms.Web.Website" Version="[9.0.0, 14.0.0)" />
+	  <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[9.0.0, 14.0.0)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\WonderSEOChecker\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Wonder-Check.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>
