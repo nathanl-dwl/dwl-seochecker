@@ -6,7 +6,7 @@ This plugin is powered Google's Page Speed Insights API to perform the analysis.
 
 **Version 1.4**
 
--Redundant loading of UUI elements has been removed, resolving a 404 error sometimes occuring for users
--Back-office error that displays on non-template pages has been removed
--New view implemented to notify users if they are attempting to load the plugin on a page without a template
--Check in place for local versions of websites, plugin only able to run on valid URLs
+-Redundant loading of UUI elements has been removed, resolving a 404 error sometimes occuring for users<br>
+-Back-office error that displays on non-template pages has been removed<br>
+-New view implemented to notify users if they are attempting to load the plugin on a page without a template<br>
+-Check in place for local versions of websites, plugin only able to run on valid URLs<br>
