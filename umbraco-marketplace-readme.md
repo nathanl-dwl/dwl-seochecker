@@ -29,10 +29,14 @@ Once the API is enabled:
 Add a `PageSpeed` section to your Umbraco `appsettings.json` (or use environment-specific overrides):
 
 ```json
-"PageSpeed": {
-  "ApiKey": "your-google-api-key-here",
-  "InternalAuthToken": "your-secure-random-token"
-}
+"WonderSeoChecker": {
+    "PageSpeed": {
+      "ApiKey": "api-key-here",
+      "Strategy": "desktop",
+      "TimeoutSeconds": 10,
+      "InternalAuthToken": "example-guid-token"
+    }
+  },
 ```
  🔐 **InternalAuthToken** is a shared secret used to authorize internal API calls from your Umbraco backoffice UI to the server-side controller.  
  It ensures that only trusted requests from your own CMS can invoke the PageSpeed endpoint.
